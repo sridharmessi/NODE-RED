@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>CSS Project</title>
+        
+        <style>
+            * {
+            margin: 0;
+            padding: 0;
+            }
+            header {
+                text-align: center;
+                background: #fff;
+                color: #1a71b8;
+                padding: 10px;
+            }
+            
+            body {
+              background-image: url("https://lh3.googleusercontent.com/s_bXoge9wYeh63Hvp8TG0DyML4fhiDuSZdffc5Nq5ltKqLTk6B_wf-p7z5RnpJPF_mzYEsVh0bx8FIR4Q8yi3GcQp0991ALIx6C5_n7Va4uC4Byzy5gNdaN9jvAO0TR5YSHweMyK8Nw=w2400?source=screenshot.guru");
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: 100% 100%;
+            }
+        
+        
+            footer {
+                text-align: center;
+                color: #aaa;
+                font-size: 14px;
+            }
+        
+            .SignUp {
+              margin-top: 50px;
+              margin-left: 60%;
+              width: 370px;
+              height: 530px;
+              background-color: #F2F3F4 ;
+              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+              border-radius: 10px;
+            }
+            
+            .SignUp a {
+              text-decoration: none;
+              color: #1a71b8;
+            }
+            
+            .head {
+              font-size: 30px;
+              margin-left: 10%;
+              font-family: font-family: 'IBM Plex Serif', serif;
+            }
+            
+            .foot {
+              margin-left: 65px;
+            }
+            
+            .signUpForm {
+              margin-left: 10%;
+              font-size: 15px;
+            }
+            
+            button {
+              width: 120px;
+              height: 50px;
+              margin-left: 25px;
+              padding: 12px 20px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+              background-color:#1a71b8;
+              color: white;
+              font-size: 20px;
+            }
+            
+            button:hover {
+              background-color: #117A65;
+              color: white;
+            }
+            input[type=text], input[type=email ], input[type=password] {
+              width: 90%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+            select {
+              width: 90%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;                
+            }
+            
+            .error {
+                color: white;
+                font-size: 8px;
+                font-weight: bolder;
+                margin-left: 5px;
+                background: crimson;
+                padding: 3px 5px;
+                border-radius: 100%;
+                font-family: monospace;
+                display: none;
+            }
+    
+            
+        </style>
+    </head>
+    
+    <body>
+        
+        <header>
+            <h1>Car Parking Tariff</h1>
+        </header>
+        
+        <div class="SignUp">
+          <br>
+          <p class="head">Car Details</p>
+          <form class="signUpForm" action="/{{url}}" onsubmit="return validate()" method="post">
+            <label for="Name"> Name</label><br>
+            <input type="text" name="Name" id="name" value="" placeholder="Name" required ><span id="n_error" class="error">x</span><br>
+            <label for="Email"> Email</label><br>
+            <input type="email" name="Email" id="email" value="" placeholder="Email" required >  <span id="e_error" class="error">x</span><br>
+            <label for = "Car Type">Car Type</label>
+            <select name = "Car Type">
+                <option value = "Mini">Mini</option>
+                <option value = "Sedan">Sedan</option>
+                <option value = "SUV">SUV</option>
+                <option value = "MPV">MPV</option>
+            </select><br>
+            <label for="Number"> Number</label><br>
+            <input type="text" name="Number" value="" id="number" placeholder="Mobile Number" required><span id="m_error" class="error">x</span><br>
+            <label for="Car Number"> Car Number</label><br>
+            <input type="text" name="Car Number" id="name" value="" placeholder="Car Number XX - XX - XXXX" required ><span id="n_error" class="error">x</span><br>            
+            <button type="submit" name="Submit"> Submit</button>
+            <button type="reset" name="Reset"> Reset</button>
+            <p class ="foot">To Check Parking Rates <a href="https://chennaimetrorail.org/wp-content/uploads/2018/05/Parking-Tariff-stations.pdf"> Click here </a></p>
+          </form>
+        </div>
+        
+        <footer>
+            <p> &copy; 2020 &bull; SRIDHAR.D
+        </footer>
+        
+        <script type="text/javascript">
+    
+            function validate() {
+              var name = document.getElementById('name');
+              var email = document.getElementById('email');
+              var pwd = document.getElementById('pwd');
+              var num = document.getElementById('number');
+              var test = 0;
+              
+              alert(email.value);
+              if (email.value == "") {
+                document.getElementById('email').style.border = "solid 1px red";
+                document.getElementById('email').placeholder ="Enter a valid email address";
+                document.getElementById('e_error').style.display = "inline-block";
+                test++;
+              }
+              // alert(num.value.length);
+              if (num.value.length != 10) {
+                document.getElementById('number').style.border = "solid 1px red";
+                document.getElementById('number').placeholder ="Enter a valid number";
+                document.getElementById('m_error').style.display = "inline-block";
+                test++;
+              }
+    
+              if(test > 0) {
+                return false;
+              }
+    
+              return true;
+            }
+        </script>
+        
+    </body>
+</html>
